@@ -1,12 +1,36 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View, Animated } from 'react-native';
 import React, {useEffect, useRef} from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
+
+const MyStack = () => {
+
+}
 
 //IN ORDER TO RUN IN EXPO GO:
 //*
 //cd into project directory
 //npx expo start
 //scan barcode in app
+
+//MISC NOTES FROM AIDAN:
+//everyone might need to install -> npm install @react-navigation/native @react-navigation/native-stack
+//                                  npm install react-native-gesture-handler
+//                                  npx expo install react-native-screens react-native-safe-area-context
+
+
+
+
+
+
+
+
+const HomePage = ({navigation}) => {
+  
+}
 
 export default function App() {
 
@@ -21,12 +45,14 @@ export default function App() {
   }, [fadeAnim]);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View>
-        <Animated.Text style={[styles.text, {opacity: fadeAnim}]}>Mind, Body, and Soul</Animated.Text>
-        <StatusBar style="auto" />
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <SafeAreaView style={styles.container}>
+        <View>
+          <Animated.Text style={[styles.text, {opacity: fadeAnim}]}>Mind, Body, and Soul</Animated.Text>
+          <StatusBar style="auto" />
+        </View>
+      </SafeAreaView>
+    </NavigationContainer>
   );
 }
 
