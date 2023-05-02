@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View, Animated } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, Animated, TouchableOpacity } from 'react-native';
 import React, {useEffect, useRef} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -22,18 +22,8 @@ const MyStack = () => {
 //                                  npx expo install react-native-screens react-native-safe-area-context
 
 
-
-
-
-
-
-
+//THE HOMEPAGE
 const HomePage = ({navigation}) => {
-  
-}
-
-export default function App() {
-
   const fadeAnim = useRef(new Animated.Value(0)).current;
   
   useEffect(() => {
@@ -45,13 +35,33 @@ export default function App() {
   }, [fadeAnim]);
 
   return (
-    <NavigationContainer>
       <SafeAreaView style={styles.container}>
         <View>
           <Animated.Text style={[styles.text, {opacity: fadeAnim}]}>Mind, Body, and Soul</Animated.Text>
+          <TouchableOpacity
+        style={{ padding: 10, backgroundColor: 'blue', borderRadius: 5 }}
+        onPress={() => navigation.navigate('Mind')}
+      >
+        <Text style={{ color: 'white' }}>Go to "Mind"</Text>
+      </TouchableOpacity>
           <StatusBar style="auto" />
         </View>
       </SafeAreaView>
+  );
+}
+
+//THE MIND OAGE
+const MindPage = ({navigation}) => {
+
+}
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomePage} />
+        <Stack.Screen name="Mind" component={MindPage} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
