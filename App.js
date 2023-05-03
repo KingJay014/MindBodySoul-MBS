@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View, Animated, TouchableOpacity } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, Animated, TouchableOpacity, Image } from 'react-native';
 import React, {useEffect, useRef} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -37,23 +37,57 @@ const HomePage = ({navigation}) => {
   return (
       <SafeAreaView style={styles.container}>
         <View>
-          <Animated.Text style={[styles.text, {opacity: fadeAnim}]}>Mind, Body, and Soul</Animated.Text>
-          <TouchableOpacity
-        style={{ padding: 10, backgroundColor: 'blue', borderRadius: 5 }}
-        onPress={() => navigation.navigate('Mind')}
-      >
-        <Text style={{ color: 'white' }}>Go to "Mind"</Text>
+          <Animated.Text style={[styles.text, {opacity: fadeAnim, paddingBottom: 40}]}>Mind, Body, and Soul</Animated.Text>
+
+          {/*
+          <TouchableOpacity style={{ padding: 100, backgroundColor: 'blue', borderRadius: 10 }} onPress={() => navigation.navigate('Mind')}>
+          <Text style={{ color: 'white' }}>Go to "Mind"</Text>
+          </TouchableOpacity>
+          */}
+
+      <TouchableOpacity style={{padding: 0, alignSelf: 'center'}} onPress={() => navigation.navigate('Mind')}>
+      <Image source={require('./assets/MindButton.png')} style={styles.buttonStyle} />
       </TouchableOpacity>
+
+      <TouchableOpacity style={{padding: 0, alignSelf: 'center'}} onPress={() => navigation.navigate('Body')}>
+      <Image source={require('./assets/BodyButton.png')} style={styles.buttonStyle} />
+      </TouchableOpacity>
+
+      <TouchableOpacity style={{padding: 0, alignSelf: 'center'}} onPress={() => navigation.navigate('Soul')}>
+      <Image source={require('./assets/SoulButton.png')} style={styles.buttonStyle} />
+      </TouchableOpacity>
+      
           <StatusBar style="auto" />
         </View>
       </SafeAreaView>
   );
 }
+//END HOMEPAGE
 
-//THE MIND OAGE
+
+
+//THE MIND PAGE
 const MindPage = ({navigation}) => {
 
 }
+//END MIND PAGE
+
+
+
+//START BODY PAGE
+const BodyPage = ({navigation}) => {
+
+}
+//END BODY PAGE
+
+
+
+//START SOUL PAGE
+const SoulPage = ({navigation}) => {
+
+}
+//END SOUL PAGE
+
 
 export default function App() {
   return (
@@ -61,6 +95,8 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomePage} />
         <Stack.Screen name="Mind" component={MindPage} />
+        <Stack.Screen name="Body" component={BodyPage} />
+        <Stack.Screen name="Soul" component={SoulPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -78,5 +114,17 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 34,
     paddingTop: 100,
+  },
+  buttonStyle: {
+    
+    margin: 15,
+    resizeMode: 'contain',
+    //margin: 5,
+    height: 150,
+    width: 150,
+    //justifyContent: 'center',
+    
+
+
   }
 });
