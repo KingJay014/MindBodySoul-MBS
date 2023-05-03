@@ -128,7 +128,7 @@ const MindPage = ({navigation}) => {
       </TouchableOpacity>
 
       <TouchableOpacity style={{padding: 0, alignSelf: 'center', opacity: fadeAnim3}} onPress={() => navigation.navigate('Extra Information')}>
-      <Animated.Image source={require('./assets/3DotsButton.png')} style={[styles.buttonStyle, {opacity: fadeAnim3}]} />
+      <Animated.Image source={require('./assets/BrainButton.png')} style={[styles.buttonStyle, {opacity: fadeAnim3}]} />
       </TouchableOpacity>
 
       {/*}
@@ -424,6 +424,40 @@ const BreathingPage = ({navigation}) => {
 //START MIND INFO PAGE
 const MindInformationPage = ({navigation}) => {
 
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <View style={{paddingTop: 40}}>
+          
+          <Text style={styles.titletext}>
+            Tips to maintain {'\n'}
+            a healthy mind.
+          </Text>
+
+          <Text style={styles.titletext}>1. Prioritize Self-Care:</Text><Text style={styles.bodytextnotaligned}> Self-care involves taking care of your physical, emotional, and mental well-being. It includes activities such as getting enough sleep, eating healthy, exercising regularly, spending time outdoors, and engaging in activities that make you happy. Prioritizing self-care can help reduce stress and improve overall mental health.</Text>
+
+<Text style={styles.titletext}>2. Connect with Others:</Text><Text style={styles.bodytextnotaligned}> Social connection is essential for good mental health. It's important to build and maintain meaningful relationships with friends, family, and others who support and care about you. Spending time with others and participating in group activities can help reduce feelings of loneliness and isolation.</Text>
+
+<Text style={styles.titletext}>3. Manage Stress:</Text><Text style={styles.bodytextnotaligned}> Stress is a common part of life, but excessive stress can negatively impact mental health. Learning how to manage stress can help reduce its negative impact. Techniques like deep breathing, meditation, and mindfulness can help reduce stress and promote relaxation.</Text>
+
+<Text style={styles.titletext}>4. Practice Gratitude:</Text><Text style={styles.bodytextnotaligned}> Focusing on the positive aspects of life and expressing gratitude for them can help improve mental health. Practicing gratitude can help shift focus from negative thoughts and emotions to positive ones, promoting a more positive outlook on life.</Text>
+
+<Text style={styles.titletext}>5. Seek Professional Help:</Text><Text style={styles.bodytextnotaligned}> If you're struggling with mental health issues, seeking professional help can be beneficial. Mental health professionals can provide support, guidance, and treatment to help manage symptoms and improve overall mental health.</Text>
+
+<Text style={styles.titletext}>6. Set Realistic Goals:</Text><Text style={styles.bodytextnotaligned}> Setting realistic goals and working towards them can promote feelings of accomplishment and boost self-esteem. It's important to set goals that are achievable and meaningful to you.</Text>
+
+<Text style={styles.titletext}>7. Engage in Meaningful Activities:</Text><Text style={styles.bodytextnotaligned}> Engaging in activities that are meaningful and enjoyable can improve mental health. Activities like volunteering, creative pursuits, and hobbies can provide a sense of purpose and promote feelings of happiness and fulfillment.</Text>
+
+<Text style={styles.titletext}>8. Practice Mindfulness:</Text><Text style={styles.bodytextnotaligned}> Mindfulness involves being present in the moment and accepting thoughts and emotions without judgment. Practicing mindfulness can help reduce stress and promote relaxation, improving overall mental health.</Text>
+
+<Text style={styles.titletext}>9. Take Breaks:</Text><Text style={styles.bodytextnotaligned}> It's important to take breaks and prioritize relaxation. Engaging in activities that promote relaxation, like taking a walk or reading a book, can help reduce stress and improve mental health.</Text>
+
+<Text style={styles.titletext}>10. Stay Positive:</Text><Text style={styles.bodytextnotaligned}> Maintaining a positive outlook can improve mental health. Focusing on the positive aspects of life and practicing optimism can promote feelings of happiness and well-being.</Text>
+
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
 //END MIND INFO PAGE
 
@@ -491,6 +525,12 @@ const styles = StyleSheet.create({
     fontSize: 24,
     marginHorizontal: 10,
     textAlign: 'justify',
+    padding: 30,
+  },
+  bodytextnotaligned: {
+    fontSize: 24,
+    marginHorizontal: 10,
+    textAlign: 'left',
     padding: 30,
   },
   centered: {
