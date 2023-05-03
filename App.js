@@ -3,12 +3,9 @@ import { SafeAreaView, StyleSheet, Text, View, Animated, TouchableOpacity, Image
 import React, {useEffect, useRef} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
 const Stack = createNativeStackNavigator();
 
-const MyStack = () => {
 
-}
 
 //IN ORDER TO RUN IN EXPO GO:
 //*
@@ -16,7 +13,7 @@ const MyStack = () => {
 //npx expo start
 //scan barcode in app
 
-//MISC NOTES FROM AIDAN:
+//NOTES FROM AIDAN:
 //everyone might need to install -> npm install @react-navigation/native @react-navigation/native-stack
 //                                  npm install react-native-gesture-handler
 //                                  npx expo install react-native-screens react-native-safe-area-context
@@ -25,6 +22,9 @@ const MyStack = () => {
 //THE HOMEPAGE
 const HomePage = ({navigation}) => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
+  const fadeAnim2 = useRef(new Animated.Value(0)).current;
+  const fadeAnim3 = useRef(new Animated.Value(0)).current;
+  const fadeAnim4 = useRef(new Animated.Value(0)).current;
   
   useEffect(() => {
     Animated.timing(fadeAnim, {
@@ -32,7 +32,26 @@ const HomePage = ({navigation}) => {
       duration: 2000,
       useNativeDriver: true,
     }).start();
-  }, [fadeAnim]);
+    Animated.timing(fadeAnim2, {
+      delay: 350,
+      toValue: 1,
+      duration: 2000,
+      useNativeDriver: true,
+    }).start();
+    Animated.timing(fadeAnim3, {
+      delay: 700,
+      toValue: 1,
+      duration: 2000,
+      useNativeDriver: true,
+    }).start();
+    Animated.timing(fadeAnim4, {
+      delay: 1050,
+      toValue: 1,
+      duration: 2000,
+      useNativeDriver: true,
+    }).start();
+  }, [fadeAnim, fadeAnim2, fadeAnim3, fadeAnim4]);
+
 
   return (
       <SafeAreaView style={styles.container}>
@@ -44,17 +63,17 @@ const HomePage = ({navigation}) => {
           <Text style={{ color: 'white' }}>Go to "Mind"</Text>
           </TouchableOpacity>
           */}
-
-      <TouchableOpacity style={{padding: 0, alignSelf: 'center'}} onPress={() => navigation.navigate('Mind')}>
-      <Image source={require('./assets/MindButton.png')} style={styles.buttonStyle} />
+          
+      <TouchableOpacity style={{padding: 0, alignSelf: 'center' }} onPress={() => navigation.navigate('Mind')}>
+      <Animated.Image source={require('./assets/MindButton.png')} style={[styles.buttonStyle, {opacity: fadeAnim2} ]} />
       </TouchableOpacity>
 
-      <TouchableOpacity style={{padding: 0, alignSelf: 'center'}} onPress={() => navigation.navigate('Body')}>
-      <Image source={require('./assets/BodyButton.png')} style={styles.buttonStyle} />
+      <TouchableOpacity style={{padding: 0, alignSelf: 'center', opacity: fadeAnim3}} onPress={() => navigation.navigate('Body')}>
+      <Animated.Image source={require('./assets/BodyButton.png')} style={[styles.buttonStyle, {opacity: fadeAnim3}]} />
       </TouchableOpacity>
 
-      <TouchableOpacity style={{padding: 0, alignSelf: 'center'}} onPress={() => navigation.navigate('Soul')}>
-      <Image source={require('./assets/SoulButton.png')} style={styles.buttonStyle} />
+      <TouchableOpacity style={{padding: 0, alignSelf: 'center', opacity: fadeAnim4}} onPress={() => navigation.navigate('Soul')}>
+      <Animated.Image source={require('./assets/SoulButton.png')} style={[styles.buttonStyle, {opacity: fadeAnim4}]} />
       </TouchableOpacity>
       
           <StatusBar style="auto" />
@@ -113,11 +132,11 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 34,
-    paddingTop: 100,
+    paddingTop: 70,
   },
   buttonStyle: {
     
-    margin: 15,
+    margin: 20,
     resizeMode: 'contain',
     //margin: 5,
     height: 150,
