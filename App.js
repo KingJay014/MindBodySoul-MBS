@@ -7,6 +7,7 @@ const Stack = createNativeStackNavigator();
 
 
 
+
 //IN ORDER TO RUN IN EXPO GO:
 //*
 //cd into project directory
@@ -17,7 +18,7 @@ const Stack = createNativeStackNavigator();
 //everyone might need to install -> npm install @react-navigation/native @react-navigation/native-stack
 //                                  npm install react-native-gesture-handler
 //                                  npx expo install react-native-screens react-native-safe-area-context
-
+//                                  npx expo install expo-font
 
 //THE HOMEPAGE
 const HomePage = ({navigation}) => {
@@ -109,6 +110,7 @@ const SoulPage = ({navigation}) => {
 
 
 export default function App() {
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
