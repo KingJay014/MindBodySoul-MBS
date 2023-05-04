@@ -59,11 +59,6 @@ const HomePage = ({navigation}) => {
         <View style={styles.centered}>
           <Animated.Text style={[styles.text, {opacity: fadeAnim, paddingBottom: 40}]}>Mind, Body, and Soul</Animated.Text>
 
-          {/*
-          <TouchableOpacity style={{ padding: 100, backgroundColor: 'blue', borderRadius: 10 }} onPress={() => navigation.navigate('Mind')}>
-          <Text style={{ color: 'white' }}>Go to "Mind"</Text>
-          </TouchableOpacity>
-          */}
           
       <TouchableOpacity style={{padding: 0, alignSelf: 'center' }} onPress={() => navigation.navigate('Mind')}>
       <Animated.Image source={require('./assets/MindButton.png')} style={[styles.buttonStyle, {opacity: fadeAnim2} ]} />
@@ -127,15 +122,10 @@ const MindPage = ({navigation}) => {
       <Animated.Image source={require('./assets/BreathButton.png')} style={[styles.buttonStyle, {opacity: fadeAnim2} ]} />
       </TouchableOpacity>
 
-      <TouchableOpacity style={{padding: 0, alignSelf: 'center', opacity: fadeAnim3}} onPress={() => navigation.navigate('Extra Information')}>
+      <TouchableOpacity style={{padding: 0, alignSelf: 'center'}} onPress={() => navigation.navigate('Extra Information')}>
       <Animated.Image source={require('./assets/BrainButton.png')} style={[styles.buttonStyle, {opacity: fadeAnim3}]} />
       </TouchableOpacity>
 
-      {/*}
-      <TouchableOpacity style={{padding: 0, alignSelf: 'center', opacity: fadeAnim4}} onPress={() => navigation.navigate('Soul')}>
-      <Animated.Image source={require('./assets/SoulButton.png')} style={[styles.buttonStyle, {opacity: fadeAnim4}]} />
-      </TouchableOpacity>
-      */}
     </View>
   </SafeAreaView>
   );
@@ -463,11 +453,86 @@ const MindInformationPage = ({navigation}) => {
 
 //START BODY PAGE
 const BodyPage = ({navigation}) => {
+  
+  const f1 = useRef(new Animated.Value(0)).current;
+  const f2 = useRef(new Animated.Value(0)).current;
+  const f3 = useRef(new Animated.Value(0)).current;
+  const f4 = useRef(new Animated.Value(0)).current;
+  
+  useEffect(() => {
+    Animated.timing(f1, {
+      toValue: 1,
+      duration: 1000,
+      useNativeDriver: true,
+    }).start();
+    Animated.timing(f2, {
+      delay: 100,
+      toValue: 1,
+      duration: 1000,
+      useNativeDriver: true,
+    }).start();
+    Animated.timing(f3, {
+      delay: 200,
+      toValue: 1,
+      duration: 1000,
+      useNativeDriver: true,
+    }).start();
+    Animated.timing(f4, {
+      delay: 300,
+      toValue: 1,
+      duration: 1000,
+      useNativeDriver: true,
+    }).start();
+  }, [f1, f2, f3, f4]);
 
+  return (
+  <SafeAreaView style={styles.container}>
+    <View style={styles.centered}>
+      <TouchableOpacity style={{padding: 0, alignSelf: 'center' }} onPress={() => navigation.navigate('Endurance')}>
+      <Animated.Image source={require('./assets/3DotsButton.png')} style={[styles.buttonStyle, {opacity: f1} ]} />
+      </TouchableOpacity>
+
+      <TouchableOpacity style={{padding: 0, alignSelf: 'center'}} onPress={() => navigation.navigate('Strength')}>
+      <Animated.Image source={require('./assets/3DotsButton.png')} style={[styles.buttonStyle, {opacity: f2}]} />
+      </TouchableOpacity>
+
+      <TouchableOpacity style={{padding: 0, alignSelf: 'center' }} onPress={() => navigation.navigate('Balance')}>
+      <Animated.Image source={require('./assets/3DotsButton.png')} style={[styles.buttonStyle, {opacity: f3} ]} />
+      </TouchableOpacity>
+
+      <TouchableOpacity style={{padding: 0, alignSelf: 'center'}} onPress={() => navigation.navigate('Flexibility')}>
+      <Animated.Image source={require('./assets/3DotsButton.png')} style={[styles.buttonStyle, {opacity: f4}]} />
+      </TouchableOpacity>
+
+    </View>
+  </SafeAreaView>
+  );
 }
 //END BODY PAGE
 
+//START ENDURANCE PAGE
+const EndurancePage = ({navigation}) => {
+  
+}
+//END ENDURANCE PAGE
 
+//START STRENGTH PAGE
+const StrengthPage = ({navigation}) => {
+  
+}
+//END STRENGTH PAGE
+
+//START BALANCE PAGE
+const BalancePage = ({navigation}) => {
+ 
+}
+//END BALANCE PAGE
+
+//START FLEXIBILITY PAGE
+const FlexibilityPage = ({navigation}) => {
+  
+}
+//END FLEXIBILITY PAGE
 
 //START SOUL PAGE
 const SoulPage = ({navigation}) => {
@@ -487,6 +552,10 @@ export default function App() {
         <Stack.Screen name="Soul" component={SoulPage} />
         <Stack.Screen name="Breath" component={BreathingPage} />
         <Stack.Screen name="Extra Information" component={MindInformationPage} />
+        <Stack.Screen name="Endurance" component={EndurancePage} />
+        <Stack.Screen name="Strength" component={StrengthPage} />
+        <Stack.Screen name="Balance" component={BalancePage} />
+        <Stack.Screen name="Flexibility" component={FlexibilityPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
