@@ -5,8 +5,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Button, Alert } from "react-native";
 import YoutubePlayer from "react-native-youtube-iframe";
-import { Audio } from 'expo-av';
-
 const Stack = createNativeStackNavigator();
 
 
@@ -811,7 +809,9 @@ const MeditationPage = ({navigation}) => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+    <ScrollView>
+    <View style={{paddingTop: 40}}>
       <Text style={styles.timerText}>{formatTime()}</Text>
       <View style={styles.buttonsContainer}>
         <TouchableOpacity
@@ -853,8 +853,21 @@ const MeditationPage = ({navigation}) => {
         <TouchableOpacity style={styles.button} onPress={handleStopTimer}>
           <Text style={styles.buttonText}>Stop</Text>
         </TouchableOpacity>
+        
+        <View style={{paddingTop: 40}}>
+
+        <Text style={styles.titletext}>
+        Meditation.
+        </Text>
+
+        <Text style={styles.bodytext}>Meditation has numerous benefits for the mind, body, and soul. It is an excellent tool for relaxation, stress reduction, and improving overall well-being. Through meditation, one can connect with their inner self and become more self-aware.{'\n'}{'\n'}It allows for a deeper understanding and acceptance of one's thoughts and emotions, leading to a greater sense of inner peace and harmony. In terms of the soul, meditation is believed to facilitate a connection with a higher power or divine consciousness. It can provide a spiritual experience and help individuals tap into their intuition and inner wisdom. Meditation is a powerful practice that can bring about a sense of calm, clarity, and deeper understanding of oneself and the world around them.{'\n'}{'\n'}To meditate, simply sit, or lay down in a comfortable position.  The goal here is the bring yourself to the present moment, one simple way to do this is to focus on your natural in-breath, and out-breath. If a thought comes into your head, look at the thought without judgement, and return back to the breath.{'\n'}{'\n'}Above, you can find a timer so you can meditate however long is comfortable. 
+        </Text>
+        </View>
+
       </View>
     </View>
+    </ScrollView>
+    </SafeAreaView>
   );
 }
 
