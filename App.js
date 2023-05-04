@@ -763,11 +763,11 @@ const SoulPage = ({navigation}) => {
   <SafeAreaView style={styles.container}>
     <View style={styles.centered}>
     <TouchableOpacity style={{padding: 0, alignSelf: 'center' }} onPress={() => navigation.navigate('Meditation')}>
-      <Animated.Image source={require('./assets/3DotsButton.png')} style={[styles.buttonStyle, {opacity: fadeAnim} ]} />
+      <Animated.Image source={require('./assets/MeditationButton.png')} style={[styles.buttonStyle, {opacity: fadeAnim} ]} />
       </TouchableOpacity>
 
       <TouchableOpacity style={{padding: 0, alignSelf: 'center'}} onPress={() => navigation.navigate('Insight')}>
-      <Animated.Image source={require('./assets/3DotsButton.png')} style={[styles.buttonStyle, {opacity: fadeAnim2}]} />
+      <Animated.Image source={require('./assets/InsightButton.png')} style={[styles.buttonStyle, {opacity: fadeAnim2}]} />
       </TouchableOpacity>
 
     </View>
