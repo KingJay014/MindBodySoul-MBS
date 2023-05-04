@@ -1,8 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View, Animated, TouchableOpacity, Image, ScrollView } from 'react-native';
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useCallback, useState} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Button, Alert } from "react-native";
+import YoutubePlayer from "react-native-youtube-iframe";
 const Stack = createNativeStackNavigator();
 
 
@@ -19,6 +21,9 @@ const Stack = createNativeStackNavigator();
 //                                  npm install react-native-gesture-handler
 //                                  npx expo install react-native-screens react-native-safe-area-context
 //                                  npx expo install expo-font
+//                                  npm install react-native-webview
+//                                  npm install react-native-youtube-iframe
+//                                  npx expo install react-native-webview
 
 //THE HOMEPAGE
 const HomePage = ({navigation}) => {
@@ -340,8 +345,8 @@ const BreathingPage = ({navigation}) => {
       <View style={{paddingTop: 40}}>
        
         <Text style={styles.titletext}>
-          Breathing can{'\n'}
-          calm the mind.
+        Breathing can{'\n'}
+        calm the mind.
         </Text>
 
         <Text style={styles.bodytext}>
@@ -424,25 +429,25 @@ const MindInformationPage = ({navigation}) => {
             a healthy mind.
           </Text>
 
-          <Text style={styles.titletext}>1. Prioritize Self-Care:</Text><Text style={styles.bodytextnotaligned}> Self-care involves taking care of your physical, emotional, and mental well-being. It includes activities such as getting enough sleep, eating healthy, exercising regularly, spending time outdoors, and engaging in activities that make you happy. Prioritizing self-care can help reduce stress and improve overall mental health.</Text>
+          <Text style={styles.titletext}>1. Prioritize Self-Care:</Text><Text style={styles.bodytext}>Self-care involves taking care of your physical, emotional, and mental well-being. It includes activities such as getting enough sleep, eating healthy, exercising regularly, spending time outdoors, and engaging in activities that make you happy. Prioritizing self-care can help reduce stress and improve overall mental health.</Text>
 
-<Text style={styles.titletext}>2. Connect with Others:</Text><Text style={styles.bodytextnotaligned}> Social connection is essential for good mental health. It's important to build and maintain meaningful relationships with friends, family, and others who support and care about you. Spending time with others and participating in group activities can help reduce feelings of loneliness and isolation.</Text>
+<Text style={styles.titletext}>2. Connect with Others:</Text><Text style={styles.bodytext}>Social connection is essential for good mental health. It's important to build and maintain meaningful relationships with friends, family, and others who support and care about you. Spending time with others and participating in group activities can help reduce feelings of loneliness and isolation.</Text>
 
-<Text style={styles.titletext}>3. Manage Stress:</Text><Text style={styles.bodytextnotaligned}> Stress is a common part of life, but excessive stress can negatively impact mental health. Learning how to manage stress can help reduce its negative impact. Techniques like deep breathing, meditation, and mindfulness can help reduce stress and promote relaxation.</Text>
+<Text style={styles.titletext}>3. Manage Stress:</Text><Text style={styles.bodytext}>Stress is a common part of life, but excessive stress can negatively impact mental health. Learning how to manage stress can help reduce its negative impact. Techniques like deep breathing, meditation, and mindfulness can help reduce stress and promote relaxation.</Text>
 
-<Text style={styles.titletext}>4. Practice Gratitude:</Text><Text style={styles.bodytextnotaligned}> Focusing on the positive aspects of life and expressing gratitude for them can help improve mental health. Practicing gratitude can help shift focus from negative thoughts and emotions to positive ones, promoting a more positive outlook on life.</Text>
+<Text style={styles.titletext}>4. Practice Gratitude:</Text><Text style={styles.bodytext}>Focusing on the positive aspects of life and expressing gratitude for them can help improve mental health. Practicing gratitude can help shift focus from negative thoughts and emotions to positive ones, promoting a more positive outlook on life.</Text>
 
-<Text style={styles.titletext}>5. Seek Professional Help:</Text><Text style={styles.bodytextnotaligned}> If you're struggling with mental health issues, seeking professional help can be beneficial. Mental health professionals can provide support, guidance, and treatment to help manage symptoms and improve overall mental health.</Text>
+<Text style={styles.titletext}>5. Seek Professional Help:</Text><Text style={styles.bodytext}>If you're struggling with mental health issues, seeking professional help can be beneficial. Mental health professionals can provide support, guidance, and treatment to help manage symptoms and improve overall mental health.</Text>
 
-<Text style={styles.titletext}>6. Set Realistic Goals:</Text><Text style={styles.bodytextnotaligned}> Setting realistic goals and working towards them can promote feelings of accomplishment and boost self-esteem. It's important to set goals that are achievable and meaningful to you.</Text>
+<Text style={styles.titletext}>6. Set Realistic Goals:</Text><Text style={styles.bodytext}>Setting realistic goals and working towards them can promote feelings of accomplishment and boost self-esteem. It's important to set goals that are achievable and meaningful to you.</Text>
 
-<Text style={styles.titletext}>7. Engage in Meaningful Activities:</Text><Text style={styles.bodytextnotaligned}> Engaging in activities that are meaningful and enjoyable can improve mental health. Activities like volunteering, creative pursuits, and hobbies can provide a sense of purpose and promote feelings of happiness and fulfillment.</Text>
+<Text style={styles.titletext}>7. Engage in Meaningful Activities:</Text><Text style={styles.bodytext}>Engaging in activities that are meaningful and enjoyable can improve mental health. Activities like volunteering, creative pursuits, and hobbies can provide a sense of purpose and promote feelings of happiness and fulfillment.</Text>
 
-<Text style={styles.titletext}>8. Practice Mindfulness:</Text><Text style={styles.bodytextnotaligned}> Mindfulness involves being present in the moment and accepting thoughts and emotions without judgment. Practicing mindfulness can help reduce stress and promote relaxation, improving overall mental health.</Text>
+<Text style={styles.titletext}>8. Practice Mindfulness:</Text><Text style={styles.bodytext}>Mindfulness involves being present in the moment and accepting thoughts and emotions without judgment. Practicing mindfulness can help reduce stress and promote relaxation, improving overall mental health.</Text>
 
-<Text style={styles.titletext}>9. Take Breaks:</Text><Text style={styles.bodytextnotaligned}> It's important to take breaks and prioritize relaxation. Engaging in activities that promote relaxation, like taking a walk or reading a book, can help reduce stress and improve mental health.</Text>
+<Text style={styles.titletext}>9. Take Breaks:</Text><Text style={styles.bodytext}>It's important to take breaks and prioritize relaxation. Engaging in activities that promote relaxation, like taking a walk or reading a book, can help reduce stress and improve mental health.</Text>
 
-<Text style={styles.titletext}>10. Stay Positive:</Text><Text style={styles.bodytextnotaligned}> Maintaining a positive outlook can improve mental health. Focusing on the positive aspects of life and practicing optimism can promote feelings of happiness and well-being.</Text>
+<Text style={styles.titletext}>10. Stay Positive:</Text><Text style={styles.bodytext}>Maintaining a positive outlook can improve mental health. Focusing on the positive aspects of life and practicing optimism can promote feelings of happiness and well-being.</Text>
 
         </View>
       </ScrollView>
@@ -489,19 +494,19 @@ const BodyPage = ({navigation}) => {
   <SafeAreaView style={styles.container}>
     <View style={styles.centered}>
       <TouchableOpacity style={{padding: 0, alignSelf: 'center' }} onPress={() => navigation.navigate('Endurance')}>
-      <Animated.Image source={require('./assets/3DotsButton.png')} style={[styles.buttonStyle, {opacity: f1} ]} />
+      <Animated.Image source={require('./assets/EnduranceButton.png')} style={[styles.buttonStyle, {opacity: f1} ]} />
       </TouchableOpacity>
 
       <TouchableOpacity style={{padding: 0, alignSelf: 'center'}} onPress={() => navigation.navigate('Strength')}>
-      <Animated.Image source={require('./assets/3DotsButton.png')} style={[styles.buttonStyle, {opacity: f2}]} />
+      <Animated.Image source={require('./assets/StrengthButton.png')} style={[styles.buttonStyle, {opacity: f2}]} />
       </TouchableOpacity>
 
       <TouchableOpacity style={{padding: 0, alignSelf: 'center' }} onPress={() => navigation.navigate('Balance')}>
-      <Animated.Image source={require('./assets/3DotsButton.png')} style={[styles.buttonStyle, {opacity: f3} ]} />
+      <Animated.Image source={require('./assets/BalanceButton.png')} style={[styles.buttonStyle, {opacity: f3} ]} />
       </TouchableOpacity>
 
       <TouchableOpacity style={{padding: 0, alignSelf: 'center'}} onPress={() => navigation.navigate('Flexibility')}>
-      <Animated.Image source={require('./assets/3DotsButton.png')} style={[styles.buttonStyle, {opacity: f4}]} />
+      <Animated.Image source={require('./assets/FlexibilityButton.png')} style={[styles.buttonStyle, {opacity: f4}]} />
       </TouchableOpacity>
 
     </View>
@@ -510,27 +515,226 @@ const BodyPage = ({navigation}) => {
 }
 //END BODY PAGE
 
+
+
 //START ENDURANCE PAGE
 const EndurancePage = ({navigation}) => {
-  
+  const [playing, setPlaying] = useState(false);
+
+  const onStateChange = useCallback((state) => {
+    if (state === "ended") {
+      setPlaying(false);
+      Alert.alert("video has finished playing!");
+    }
+  }, []);
+
+  const togglePlaying = useCallback(() => {
+    setPlaying((prev) => !prev);
+  }, []);
+
+  return (
+    <SafeAreaView style={styles.container}>
+    <ScrollView>
+      <View style={{paddingTop: 40}}>
+       
+        <Text style={styles.titletext}>Endurance.</Text>
+
+        <Text style={styles.bodytext}>
+        Endurance exercises, also known as aerobic exercises, are an important component of a healthy lifestyle. Regular endurance exercises have numerous benefits for both physical and mental health.{'\n'}{'\n'}These exercises improve cardiovascular health, enhance lung capacity, and increase energy levels.{'\n'}{'\n'}These exercises can also reduce symptoms of depression, anxiety, and stress, and can lead to an improved sense of well-being. Regular endurance exercises have even been linked to a longer lifespan and improved overall health.{'\n'}{'\n'}Below, you can find more information on endurance exercises, as well as some exercise examples.
+        </Text>
+      <YoutubePlayer
+        height={300}
+        play={playing}
+        videoId={"N9C88z3g0Es"}
+        onChangeState={onStateChange}
+      />
+      <YoutubePlayer
+        height={300}
+        play={playing}
+        videoId={"K9VG26var34"}
+        onChangeState={onStateChange}
+      />
+      <YoutubePlayer
+        height={300}
+        play={playing}
+        videoId={"6KBBPOlyMWw"}
+        onChangeState={onStateChange}
+      />
+      <YoutubePlayer
+        height={300}
+        play={playing}
+        videoId={"Y6U728AZnV0"}
+        onChangeState={onStateChange}
+      />
+    </View>
+    </ScrollView>
+    </SafeAreaView>
+  );
 }
 //END ENDURANCE PAGE
 
 //START STRENGTH PAGE
 const StrengthPage = ({navigation}) => {
-  
+  const [playing, setPlaying] = useState(false);
+
+  const onStateChange = useCallback((state) => {
+    if (state === "ended") {
+      setPlaying(false);
+      Alert.alert("video has finished playing!");
+    }
+  }, []);
+
+  const togglePlaying = useCallback(() => {
+    setPlaying((prev) => !prev);
+  }, []);
+
+  return (
+    <SafeAreaView style={styles.container}>
+    <ScrollView>
+      <View style={{paddingTop: 40}}>
+       
+        <Text style={styles.titletext}>Strength.</Text>
+
+        <Text style={styles.bodytext}>Strength training, also known as resistance training or weightlifting, is a type of exercise that involves using resistance to build and strengthen muscles.{'\n'}{'\n'}Strength training helps to increase muscle mass and bone density, reduce risk of physical age-related conditions, improves overall physical performance, reduces the risk of injury, help to regulate blood sugar levels, reduce blood pressure and improve heart health, boost cognitive function and improve mood, and improve self-confidence and body image.{'\n'}{'\n'}Below, you can find more information on strength training and example videos.
+        </Text>
+        <YoutubePlayer
+        height={300}
+        play={playing}
+        videoId={"YvrKIQ_Tbsk"}
+        onChangeState={onStateChange}
+      />
+      <YoutubePlayer
+        height={300}
+        play={playing}
+        videoId={"LkXwfTsqQgQ"}
+        onChangeState={onStateChange}
+      />
+      <YoutubePlayer
+        height={300}
+        play={playing}
+        videoId={"9JHs7IZz_a4"}
+        onChangeState={onStateChange}
+      />
+      <YoutubePlayer
+        height={300}
+        play={playing}
+        videoId={"30PqX2zvK88"}
+        onChangeState={onStateChange}
+      />
+    </View>
+    </ScrollView>
+    </SafeAreaView>
+  );
 }
 //END STRENGTH PAGE
 
 //START BALANCE PAGE
 const BalancePage = ({navigation}) => {
- 
+    const [playing, setPlaying] = useState(false);
+  
+    const onStateChange = useCallback((state) => {
+      if (state === "ended") {
+        setPlaying(false);
+        Alert.alert("video has finished playing!");
+      }
+    }, []);
+  
+    const togglePlaying = useCallback(() => {
+      setPlaying((prev) => !prev);
+    }, []);
+  
+    return (
+      <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <View style={{paddingTop: 40}}>
+         
+          <Text style={styles.titletext}>Balance.</Text>
+  
+          <Text style={styles.bodytext}>Balance exercises are a type of physical activity that focuses on improving an individual's stability and coordination. These exercises challenge the muscles and nervous system to maintain balance in various positions, helping to improve overall body control and alignment.{'\n'}{'\n'}Balance exercises can improve strength, flexibility, posture, coordination, focus, and overall stability, making them an important addition to any fitness routine for individuals of all ages to maintain good balance and prevent falls.{'\n'}{'\n'}Below, you can find more information on balance exercises and example videos.
+          </Text>
+          <YoutubePlayer
+        height={300}
+        play={playing}
+        videoId={"E3j7nJyqLys"}
+        onChangeState={onStateChange}
+      />
+      <YoutubePlayer
+        height={300}
+        play={playing}
+        videoId={"eCpfX5rftYI"}
+        onChangeState={onStateChange}
+      />
+      <YoutubePlayer
+        height={300}
+        play={playing}
+        videoId={"b3yim1htlYQ"}
+        onChangeState={onStateChange}
+      />
+      <YoutubePlayer
+        height={300}
+        play={playing}
+        videoId={"kK9MQ0x5IDs"}
+        onChangeState={onStateChange}
+      />
+      </View>
+      </ScrollView>
+      </SafeAreaView>
+    );
 }
 //END BALANCE PAGE
 
 //START FLEXIBILITY PAGE
 const FlexibilityPage = ({navigation}) => {
+  const [playing, setPlaying] = useState(false);
   
+    const onStateChange = useCallback((state) => {
+      if (state === "ended") {
+        setPlaying(false);
+        Alert.alert("video has finished playing!");
+      }
+    }, []);
+  
+    const togglePlaying = useCallback(() => {
+      setPlaying((prev) => !prev);
+    }, []);
+  
+    return (
+      <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <View style={{paddingTop: 40}}>
+         
+          <Text style={styles.titletext}>Flexibility.</Text>
+  
+          <Text style={styles.bodytext}>Flexibility exercises are an essential component of any fitness routine and can have numerous benefits for both physical and mental health. These exercises involve stretching and lengthening muscles and joints, which can improve range of motion, reduce muscle tension and soreness, and improve posture and balance.{'\n'}{'\n'}Flexibility exercises can help to prevent injuries and improve athletic performance, improve circulation, reduce stress and anxiety, and enhance overall relaxation.{'\n'}{'\n'}Below, you can find more information on flexibility exercises with example videos.
+          </Text>
+          <YoutubePlayer
+        height={300}
+        play={playing}
+        videoId={"hqEbkpKztxw"}
+        onChangeState={onStateChange}
+      />
+      <YoutubePlayer
+        height={300}
+        play={playing}
+        videoId={"g1pb2aK2we4"}
+        onChangeState={onStateChange}
+      />
+      <YoutubePlayer
+        height={300}
+        play={playing}
+        videoId={"uKYZIC-67gY"}
+        onChangeState={onStateChange}
+      />
+      <YoutubePlayer
+        height={300}
+        play={playing}
+        videoId={"_8kV4FHSdNA"}
+        onChangeState={onStateChange}
+      />
+      </View>
+      </ScrollView>
+      </SafeAreaView>
+    );
 }
 //END FLEXIBILITY PAGE
 
@@ -591,10 +795,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   bodytext: {
-    fontSize: 24,
+    fontSize: 20,
     marginHorizontal: 10,
-    textAlign: 'justify',
+    textAlign: 'left',
     padding: 30,
+    lineHeight: 30,
   },
   bodytextnotaligned: {
     fontSize: 24,
