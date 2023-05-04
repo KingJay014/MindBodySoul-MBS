@@ -10,6 +10,8 @@ const Stack = createNativeStackNavigator();
 
 
 
+
+
 //IN ORDER TO RUN IN EXPO GO:
 //*
 //cd into project directory
@@ -740,10 +742,127 @@ const FlexibilityPage = ({navigation}) => {
 
 //START SOUL PAGE
 const SoulPage = ({navigation}) => {
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const fadeAnim2 = useRef(new Animated.Value(0)).current;
+  
+  useEffect(() => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 1000,
+      useNativeDriver: true,
+    }).start();
+    Animated.timing(fadeAnim2, {
+      delay: 100,
+      toValue: 1,
+      duration: 1000,
+      useNativeDriver: true,
+    }).start();
+  }, [fadeAnim, fadeAnim2]);
 
+  return (
+  <SafeAreaView style={styles.container}>
+    <View style={styles.centered}>
+    <TouchableOpacity style={{padding: 0, alignSelf: 'center' }} onPress={() => navigation.navigate('Meditation')}>
+      <Animated.Image source={require('./assets/3DotsButton.png')} style={[styles.buttonStyle, {opacity: fadeAnim} ]} />
+      </TouchableOpacity>
+
+      <TouchableOpacity style={{padding: 0, alignSelf: 'center'}} onPress={() => navigation.navigate('Insight')}>
+      <Animated.Image source={require('./assets/3DotsButton.png')} style={[styles.buttonStyle, {opacity: fadeAnim2}]} />
+      </TouchableOpacity>
+
+    </View>
+  </SafeAreaView>
+  );
 }
 //END SOUL PAGE
 
+
+//START MEDITATION PAGE
+const MeditationPage = ({navigation}) => {
+
+  const [time, setTime] = useState(0);
+  const intervalRef = useRef(null);
+
+  const handleStartTimer = (duration) => {
+    clearInterval(intervalRef.current);
+    setTime(duration * 60);
+    intervalRef.current = setInterval(() => {
+      setTime((t) => {
+        if (t <= 0) {
+          clearInterval(intervalRef.current);
+          return 0;
+        }
+        return t - 1;
+      });
+    }, 1000);
+  };
+
+  const handleStopTimer = () => {
+    clearInterval(intervalRef.current);
+    setTime(0);
+  };
+
+  const formatTime = () => {
+    const minutes = Math.floor(time / 60).toString().padStart(2, '0');
+    const seconds = (time % 60).toString().padStart(2, '0');
+    return `${minutes}:${seconds}`;
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.timerText}>{formatTime()}</Text>
+      <View style={styles.buttonsContainer}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => handleStartTimer(1)}
+        >
+          <Text style={styles.buttonText}>1 min</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => handleStartTimer(3)}
+        >
+          <Text style={styles.buttonText}>3 min</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => handleStartTimer(5)}
+        >
+          <Text style={styles.buttonText}>5 min</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => handleStartTimer(10)}
+        >
+          <Text style={styles.buttonText}>10 min</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => handleStartTimer(15)}
+        >
+          <Text style={styles.buttonText}>15 min</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => handleStartTimer(30)}
+        >
+          <Text style={styles.buttonText}>30 min</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={handleStopTimer}>
+          <Text style={styles.buttonText}>Stop</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+
+//END MEDITATION PAGE
+
+//START INSIGHT PAGE
+const InsightPage = ({navigation}) => {
+
+}
+//END INSIGHT PAGE
 
 export default function App() {
 
@@ -760,6 +879,8 @@ export default function App() {
         <Stack.Screen name="Strength" component={StrengthPage} />
         <Stack.Screen name="Balance" component={BalancePage} />
         <Stack.Screen name="Flexibility" component={FlexibilityPage} />
+        <Stack.Screen name="Meditation" component={MeditationPage} />
+        <Stack.Screen name="Insight" component={InsightPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -819,8 +940,31 @@ const styles = StyleSheet.create({
     height: 150,
     width: 150,
     //justifyContent: 'center',
+  },
+  timerText: {
+    fontSize: 60,
+    //fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 30,
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  },
+  button: {
+    backgroundColor: 'black',
+    padding: 10,
+    borderRadius: 5,
+    margin: 10,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 18,
+    //fontWeight: 'bold',
+  },
     
 
 
-  }
+  
 });
