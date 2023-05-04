@@ -875,7 +875,53 @@ const MeditationPage = ({navigation}) => {
 
 //START INSIGHT PAGE
 const InsightPage = ({navigation}) => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <View style={{paddingTop: 40}}>
+        <Text style={styles.titletext}>The benefits of meditation.</Text>
+        <Text style={styles.titletext}>1. Reduces stress and anxiety:</Text>
+<Text style={styles.bodytext}>Meditation has been shown to help reduce the production of stress hormones like cortisol and increase relaxation responses in the body. As a result, regular meditation practice can help reduce stress and anxiety levels.</Text>
 
+<Text style={styles.titletext}>2. Improves focus and concentration:</Text>
+<Text style={styles.bodytext}>Meditation is a practice that involves focusing one's attention on a specific object, like the breath or a mantra. Over time, this can help improve focus and concentration, making it easier to stay present and focused in daily life.</Text>
+
+<Text style={styles.titletext}>3. Increases self-awareness:</Text>
+<Text style={styles.bodytext}>Meditation involves becoming more aware of one's thoughts, feelings, and emotions. By practicing mindfulness and observing these inner experiences without judgment, individuals can gain a greater sense of self-awareness and a deeper understanding of their inner workings.</Text>
+
+<Text style={styles.titletext}>4. Promotes emotional well-being:</Text>
+<Text style={styles.bodytext}>Meditation has been shown to help individuals regulate their emotions and respond more skillfully to stressful situations. Regular meditation practice can help individuals cultivate feelings of compassion, gratitude, and kindness, leading to greater emotional well-being.</Text>
+
+<Text style={styles.titletext}>5. Enhances overall mental health:</Text>
+<Text style={styles.bodytext}>Meditation has been shown to have numerous mental health benefits, including reducing symptoms of depression and anxiety, improving mood, and enhancing overall mental health.</Text>
+
+<Text style={styles.titletext}>6. Lowers blood pressure and reduces the risk of heart disease:</Text>
+<Text style={styles.bodytext}>Regular meditation practice has been shown to lower blood pressure and reduce the risk of heart disease, potentially due to its ability to reduce stress and improve overall cardiovascular health.</Text>
+
+<Text style={styles.titletext}>7. Boosts the immune system:</Text>
+<Text style={styles.bodytext}>Meditation has been shown to boost the immune system by reducing inflammation in the body and increasing the production of antibodies that help fight off infection.</Text>
+
+<Text style={styles.titletext}>8. Reduces symptoms of depression:</Text>
+<Text style={styles.bodytext}>Regular meditation practice has been shown to reduce symptoms of depression and improve overall mood.</Text>
+
+<Text style={styles.titletext}>9. Improves sleep:</Text>
+<Text style={styles.bodytext}>Meditation has been shown to improve sleep quality and reduce insomnia by promoting relaxation and reducing stress.</Text>
+
+<Text style={styles.titletext}>10. Helps manage chronic pain:</Text>
+<Text style={styles.bodytext}>Meditation has been shown to be an effective tool for managing chronic pain by helping individuals develop a greater awareness of their physical sensations and emotional responses to pain.</Text>
+
+<Text style={styles.titletext}>11. Enhances cognitive function:</Text>
+<Text style={styles.bodytext}>Regular meditation practice has been shown to improve cognitive function by enhancing attention, memory, and decision-making abilities.</Text>
+
+<Text style={styles.titletext}>12. Increases feelings of happiness and well-being:</Text>
+<Text style={styles.bodytext}>Meditation has been shown to increase feelings of happiness, well-being, and overall life satisfaction by promoting a sense of inner peace and contentment.</Text>
+
+<Text style={styles.titletext}>13. Provides a sense of inner peace and calm:</Text>
+<Text style={styles.bodytext}>Regular meditation practice can help individuals cultivate a sense of inner peace and calm, even in the midst of daily stress and chaos.</Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
 //END INSIGHT PAGE
 
