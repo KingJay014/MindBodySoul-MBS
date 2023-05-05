@@ -405,8 +405,7 @@ const BreathingPage = ({navigation}) => {
 
         <Text style={styles.bodytext}>
         Here, we inhale with our nose for 4 seconds, hold the breath for 4 seconds,
-        exhale out the mouth for 4 seconds, and hold again for 4 more seconds. This breathing technique
-        , famous from its usage by the U.S. Navy Seals, helps reduce stress, anxiety, and fortifies focus.
+        exhale out the mouth for 4 seconds, and hold again for 4 more seconds. This breathing technique, famous from its usage by the U.S. Navy Seals, helps reduce stress, anxiety, and fortifies focus.
 
         </Text>
 
@@ -597,7 +596,7 @@ const StrengthPage = ({navigation}) => {
        
         <Text style={styles.titletext}>Strength.</Text>
 
-        <Text style={styles.bodytext}>Strength training, also known as resistance training or weightlifting, is a type of exercise that involves using resistance to build and strengthen muscles.{'\n'}{'\n'}Strength training helps to increase muscle mass and bone density, reduce risk of physical age-related conditions, improves overall physical performance, reduces the risk of injury, help to regulate blood sugar levels, reduce blood pressure and improve heart health, boost cognitive function and improve mood, and improve self-confidence and body image.{'\n'}{'\n'}Below, you can find more information on strength training and example videos.
+        <Text style={styles.bodytext}>Strength training, also known as resistance training or weightlifting, is a type of exercise that involves using resistance to build and strengthen muscles.{'\n'}{'\n'}Strength training helps to increase muscle mass and bone density, reduce risk of physical age-related conditions, improves overall physical performance, reduces the risk of injury, help to regulate blood sugar levels, reduce blood pressure, improve heart health, boost cognitive function, improve mood, and improve self-confidence and body image.{'\n'}{'\n'}Below, you can find more information on strength training and example videos.
         </Text>
         <YoutubePlayer
         height={300}
@@ -860,7 +859,7 @@ const MeditationPage = ({navigation}) => {
         Meditation.
         </Text>
 
-        <Text style={styles.bodytext}>Meditation has numerous benefits for the mind, body, and soul. It is an excellent tool for relaxation, stress reduction, and improving overall well-being. Through meditation, one can connect with their inner self and become more self-aware.{'\n'}{'\n'}It allows for a deeper understanding and acceptance of one's thoughts and emotions, leading to a greater sense of inner peace and harmony. In terms of the soul, meditation is believed to facilitate a connection with a higher power or divine consciousness. It can provide a spiritual experience and help individuals tap into their intuition and inner wisdom. Meditation is a powerful practice that can bring about a sense of calm, clarity, and deeper understanding of oneself and the world around them.{'\n'}{'\n'}To meditate, simply sit, or lay down in a comfortable position.  The goal here is the bring yourself to the present moment, one simple way to do this is to focus on your natural in-breath, and out-breath. If a thought comes into your head, look at the thought without judgement, and return back to the breath.{'\n'}{'\n'}Above, you can find a timer so you can meditate however long is comfortable. 
+        <Text style={styles.bodytext}>Meditation has numerous benefits for the mind, body, and soul. It is an excellent tool for relaxation, stress reduction, and improving overall well-being. Through meditation, one can connect with their inner self and become more self-aware.{'\n'}{'\n'}It allows for a deeper understanding and acceptance of one's thoughts and emotions, leading to a greater sense of inner peace and harmony. In terms of the soul, meditation is believed to facilitate a connection with a higher power or divine consciousness. It can provide a spiritual experience and help individuals tap into their intuition and inner wisdom. Meditation is a powerful practice that can bring about a sense of calm, clarity, and deeper understanding of oneself and the world around them.{'\n'}{'\n'}To meditate, simply sit, or lay down in a comfortable position.  The goal here is the bring yourself to the present moment, one simple way to do this is to focus on your natural in-breath, and out-breath. If a thought comes into your head, look at the thought without judgement, and return back to the breath.{'\n'}{'\n'}Above, you can find a timer so you can meditate however long is comfortable to you. 
         </Text>
         </View>
 
